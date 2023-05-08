@@ -1,0 +1,56 @@
+\section{Herbst's method and applications}
+
+
+\begin{thm}[Herbst's method]
+    Let $X$ be a boudned random variable and suppose that for some $\sigma^2 < \infty$ and all $t\geq 0$
+    $$\Ent{e^{tX}} \leq \frac{t^2 \sigma^2}{2} \EE[e^{tX}]$$
+    Then $\EE[e^{t(X-\EE[X])}]\leq \exp\left(\frac{t^2 \sigma^2}{2}\right)$
+\end{thm}
+
+
+\begin{thm}[Concentration for LSI-measures]
+    Let $X$ be a random variable which satisfies a LSI with constna t$\alpha >0$ i.e.
+    $$\Ent{f(X)^2} \leq \alpha \EE \abs{\nabla f(X)^2}$$
+    Then, for any $f\in \LLL^1$ with $\abs{\nabla f}^2\leq 1$ (a.e.)
+    $$\PP(\abs{f(X)-\EE[f(X)]}>\lambda) \leq 2 e^{-\frac{\lambda^2}{\alpha}}$$
+\end{thm}
+
+
+\begin{thm}[Tsirelson-Ibragimov-Sudakov]
+    For $\XN$ independent with law $\NNN(0,1)$ and any $L$-Lipschitz $f:\RR^N \to \RR$, i.e. 
+    $$\abs{f(x)-f(y)} \leq L \norm{x-y}_2 \quad (x,y \in \RR^N)$$
+    we have for $\lambda>0$, 
+    $$\PP(\abs{f(X)-\EE[f(X)]}> \lambda) \leq 2 \exp\left(- \frac{\lambda^2}{2L^2}\right)$$
+\end{thm}
+
+
+\begin{thm}
+    Let $A \in \RR^{N \times M}$ be a matrix with independent, centered sub-Gaussian entries. Then there are constants $0<c<C<\infty$ with 
+    $$c(\sqrt{N}+\sqrt{N}) \leq \EE \norm{A}\leq C(\sqrt{N}+\sqrt{N})$$
+\end{thm}
+
+
+\begin{defn}[$\epsilon$-net]
+    Let $(M,d)$ be a metric space. Then $\Sigma\ssq M$ is called $\epsilon$-net with $\epsilon>0$ if
+    \begin{enumerate}
+        \item $\forall x \in M: \, \exists y \in \Sigma: \quad d(x,y) \leq \epsilon$
+        \item $\forall x\neq y \in \Sigma:\quad  d(x,y) > \epsilon$
+    \end{enumerate}
+\end{defn}
+
+
+\begin{thm}[Entropy bound]
+    Let $M \ssq B_R(0):= \cub{x\in \RR^d \fil \norm{x} \leq R}$ be closed. Then every $\epsilon$-net of $M$ with Euclidian metric has at most $(1+\frac{2R}{\epsilon})^d$ points.
+\end{thm}
+
+
+\begin{thm}
+    Let $\Sigma_1 \ssq S^{N-1}, \Sigma_2 \ssq S^{M-1}$ be $1/2$-nets. Then, for any $A\in \RR^{N\times M}$,
+    $$ \norm{A} \leq 4 \max_{\substack{x\in \Sigma_1 \\ y \in \Sigma_2}} \abs{\sqb{x,Ay}}$$
+\end{thm}
+
+
+\begin{remark}[Summary]
+    For any $A\in \RR^{N \times M}$ with independent, centered sub-Gaussian entries, whose distribution satisfies a LSI with some constant:
+    $$\PP(\norm{A} \geq \lambda(\sqrt{N}+\sqrt{M})) \leq C \exp\left( -c \lambda^2(N+M\right)$$
+\end{remark}

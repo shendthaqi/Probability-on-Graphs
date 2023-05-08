@@ -1,0 +1,26 @@
+\section{Concentration function, Lipschitz condition and the Levy inequality}
+
+
+\begin{defn}[Concentration function]
+    Let $(M,d)$ be a metric space, $X$ a random variable on $M$. Its concentration function $\alpha_X:[0,\infty) \to [0,\infty)$ is 
+    $$\alpha_X(\lambda):= \sup_{substack{A\ssq M \\ \PP(A)\geq \frac{1}{2}}} \PP(d(X,A)\geq \lambda)$$
+\end{defn}
+
+
+\begin{thm}[Levy inequality]
+    For any random variable $X$, any 1-Lipschitz function $f:M \to \RR$ and all $\lambda\geq 0$
+    $$\PP(\abs{f(X)-Mf(X)}\geq \lambda) \leq 2 \alpha(\lambda)$$
+    where $Mf(X)$ is the median of $f(X)$
+\end{thm}
+
+
+\begin{remark}
+We have $$\alpha(\lambda)=1-\inf_{\substack{A\ssq S^{N-1} \\ \PP(A) \geq \frac{1}{2}}} \PP(A)$$
+with $\lambda$-extension $A_\lambda= \cub{x\in S^{N-1} \fil d(x,A)<\lambda}$
+\end{remark}
+
+\begin{thm}[Levy's isoperimetric inequality]
+    Let $A\ssq S^{N-1}$ with $\PP(A)=\PP(B)$ where $B$ is a spherical cap. Then, for any $\lambda>0$
+    $$\PP(A_\lambda)\geq \PP(B_\lambda)$$
+\end{thm}
+

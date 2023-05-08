@@ -1,0 +1,98 @@
+\section{Markov chains}
+
+
+\begin{defn}[Discrete-time Markov chain]
+  A discrete-time Markov chain is a sequence $X=(X_n)_n$ of random variables with 
+  \begin{enumerate}
+    \item \(\PP(X_{n+1}=y \fil  X_1=x_1, \dots, X_n=x_n) = \PP(X_{n+1}=y \fil X_n=x_n)\)
+  \end{enumerate}
+  One might also use the following characterization which extends more easily to \(X=(X_t)_{t\geq 0}\): 
+  \begin{enumerate}
+    \item $\EE_x[g\circ \theta_s \fil \FFF_s] = \EE_{X_s}[g]$ for all measurable and bounded $g$
+  \end{enumerate}
+  where $\PP_x(X_0=x)=1$.
+\end{defn}
+
+
+\begin{defn}[Time-homogeneity]
+    A Markov chain $X$ is called time-homogeneous if 
+    \[\PP(X_{n+1}=y \fil X_n=x) = \PP(X_1=y \fil X_0=x)\]
+\end{defn}
+
+\begin{defn}[Stationarity]
+    A Markov chain $X$ is called stationary if 
+    \[\PP( X_{k}=x_0, \dots, X_{n+k}=x_n) = \PP(X_0=x_0, \dots , X_n=x_n)\]
+\end{defn}
+
+
+
+
+\begin{defn}[Standard stopping times]
+  For a (right-continuous) family of random variables $X=(X_t)_{t\in \TTT}$, where we allow $\TTT=\RR, \NN$, we write 
+  \begin{enumerate}
+    \item \(\tau_x = \inf \cub{t>0 \fil X_t=x}\)
+    \item \(\sigma_x = \inf \cub{t>0 \fil X_t \neq x}\)
+    \item $R_x^n=0, \, R_x^{n+1} = (\tau_x \circ \theta_{\sigma_x}+\sigma_x)\circ \theta_{R_x^{n}}+R_x^n$
+  \end{enumerate}
+  Notice that a process $X$ is a Markov chain if $(R_x^{n+1}-R_x^n) =_d R_x^1$ and $(R_x^{n+1}-R_x^n)_n$ forms independent and identically distributed random variables. (So called recurrence times)
+\end{defn}
+
+
+\begin{remark}
+    The standard approach to prove statements about probabilities of Markov chains is as follows: \dots.
+\end{remark}
+
+
+
+\begin{defn}[Invariant measure]
+    A measure $\pi$ is called invariant for the Markov chain $X$ if \(\pi \Pi = \pi\)
+    \begin{enumerate}
+      \item \(\pi(y) = \sum_x \pi(x) p(x,y) \)
+    \end{enumerate}
+    
+\end{defn}
+
+\begin{defn}[Reversible measure]
+    A measure $\pi$ is called reversible for the Markov chain $X$ if 
+    \begin{enumerate}
+      \item \(\pi(x)p(x,y) = \pi(y)p(y,x)\)
+    \end{enumerate}
+    
+\end{defn}
+
+\begin{defn}[Irreducible Markov chain]
+    A Markov chain $X$ is called irreducible if for all $x,y$ there is $n\geq 1$ such that $\PP_x(X_n=y)>0$.
+\end{defn}
+
+\begin{remark}
+    Irreducibility means there is the probability that a chain starting in $x$ might reach $y$. It does not have to occur, though.
+\end{remark}
+
+\begin{defn}[Recurrence and transience]
+    $x$ is called recurrent if $\PP_x(R_x^1<\infty)=1$, otherwise transient.
+\end{defn}
+
+\begin{thm}[Invariant distribution implies recurrence]
+    An irreducible Markov chain with an invariant distribution is recurrent.
+\end{thm}
+
+\begin{thm}[Existence of an invariant measure]
+    An irreducible and recurrent Markov chain has an invariant distribution which is unique and stricly positive.
+\end{thm}
+
+\begin{thm}[Characterization of invariant distribution]
+    Let $X$ be a Markov chain with an invariant distribution $\pi$. Then 
+    \[\pi(y) = \lim_{n \to \infty} \PP_x(X_n=y)\]
+    regardless of the choice for $x$.
+\end{thm}
+
+
+\begin{thm}[Cycle characterization of reversibility]
+  A discrete-time Markov chain $X$ is reversible if and only if for all states $x_1,\dots, x_N$ with $x_1=x_N$, we have \[\prod_{n=1}^N p(x_n,x_{n+1}) = \prod_{n=1}^N p(x_{N-n+1},p_{N-n})\]
+\end{thm}
+\begin{proof}
+    
+\end{proof}
+
+
+
