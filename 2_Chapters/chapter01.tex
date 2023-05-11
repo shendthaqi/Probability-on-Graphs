@@ -1,50 +1,44 @@
 \section{Basics of graph theory}
 
 \begin{defn}[Graph]
-    A graph \(\GGG=(V,E)\) is a consists of 
+    A graph \(G=(V,E)\) is a consists of 
     \begin{enumerate}
       \item \(V \neq \emptyset\) and
-      \item \(E \ssq \cub{e\ssq V \fil \abs{e}=2}\)
+      \item \(E \ssq \set*{ \{u,v\}; u,v \in V}\)
     \end{enumerate}
-    We call elements of $V$ vertices or nodes and elements of \(E\) edges or bonds. We write $v\sim u$ if \((u,v)\in E\). We further define 
-    \begin{enumerate}
-      \item degree of a vertex is the number of edges incident to the vertex.
-      \item a locally finite graph is a graph where all degrees are finite.
-      \item a regular graph is a graph for which all degrees are equal.
-    \end{enumerate}
+    We call elements of $V$ vertices or nodes and elements of \(E\) edges or bonds. We write $v\sim u$ if \(\{u,v\}\in E\). A graph $G=(V,E)$ is called network if for $e=\{u,v\} \in V$, we assign a weight $c(u,v)>0$. For $v \in V$, we set $c(v)=\sum_{u \sim v}c(u,v)$. We further define 
+    \begin{itemize}
+      \item A vertex $v$ is called incident to an edge $e$ if $v \in e$
+      \item The degree of a vertex $v$ is the number of edges incident to it: \(\operatorname{deg}v= \abs{\set*{e\in E; v\in e}} \).
+      \item The graph $G$ is called locally finite if for all $v \in V$, \(\operatorname{deg}v<\infty\).
+      \item For $u,v \in V$, $\pi =(x_1,\dots,x_N,)$ is called a path from $u$ to $v$ if $v=x_1,\, x_N=v$ and $ \{x_{n-1},x_n\} \in E$.  
+      \item A path from $u$ to $u$ is called a cycle.
+      \item A graph $G$ is called connected if for any $u,v \in V$ there is a finite path from $u$ to $v$.
+    \end{itemize}
     
 \end{defn}
 
-
-\begin{remark}[Further definitions of graphs]
-  Other authors set different definitions for graphs:
-  \begin{enumerate}
-    \item A graph \(\GGG=(V,E)\) where $E$ consists of ordered pairs is called ordered directed graph.
-    \item There are definitions of graphs that allow multiple edges $\cub{a,b}$ and self-loops.
-  \end{enumerate}  
-\end{remark}
+ede
 
 
 \begin{defn}[Product of graphs]
-    Let $\GGG_1, \GGG_2$ be graphs. We define  
-    \[\GGG_1 \boxtimes \GGG_2:= (V_1\times V_2, \cub{((x_1,y_1),(x_2,y_2))\fil \trm{either }(x_1=x_2 ,\,(y_1,y_2)\in E_2) \trm{ or } (y_1=y_2,\,(x_1,x_2)\in E_1)})\]
+    Let $G_1, G_2$ be graphs. We define  
+    \[G_1 \boxtimes G_2:= (V_1\times V_2, \cub{((x_1,y_1),(x_2,y_2))\fil \trm{either }(x_1=x_2 ,\,(y_1,y_2)\in E_2) \trm{ or } (y_1=y_2,\,(x_1,x_2)\in E_1)})\]
     as the product of $\GGG_1$ and \(\GGG_2\).
 \end{defn}
 
 
-
-\begin{defn}[Path]
-  Let $\GGG$ be a graph. A path is a (possibly infinite) sequence of vertices $v_1,v_2,\dots$ such that $(v_n,v_{n+1})\in E$. 
+\begin{defn}[Vertex simple and edge simple paths]
+  Let $G$ be a graph. A path is a (possibly infinite) sequence of vertices $v_1,v_2,\dots$ such that $(v_n,v_{n+1})\in E$. 
   \begin{enumerate}
-    \item If a path does not visit any vertex more thatn once, it is called a vertex simple path.
+    \item If a path does not visit any vertex more that once, it is called a vertex simple path.
     \item If a path does not visit any edge more than once, it is called an edge simple path.
   \end{enumerate}
-  
 \end{defn}
 
 
 \begin{defn}[Network]
-  A network is a graph $G$ combined with a funciton $c:E\to [0,\infty)$. It will be convenient to extend $c$ to be a function from the set of all pairs in $V$ such that $c(v,u)\equiv 0$ if $(v,u)\notin E$. We call a network connected if $(V, \cub{e\fil c(e)>0})$ is connected. A network is locally finite if for any \(v\in V\), we have \(\sum_{w\neq v}c(v,w)<\infty\).  
+  A network is a graph $G$ combined with a function $c:E\to [0,\infty)$ with if $c(u,v)=0$ if $(v,u)\notin E$. We call a network connected if $(V, \set*{e\in E; c(e)>0})$ is connected. A network is locally finite if for any \(v\in V\), we have \(c(v) = \sum_{u\sim v}c(u,v)<\infty\).  
 \end{defn}
 
 
@@ -138,11 +132,11 @@ A random walk on a locally finite graph $G=(V,E)$ is a random walk on the networ
 
 \begin{lem}[Properties of the voltage function]
   Let $v: V \myxrightarrow[]{} \mathbb{R}, x \mapsto p^x(\tau_{a,z}=\tau_a)$ be the voltage function. Then, the following statements hold:
-  \begin{itemize}
+  \begin{enumerate}
       \item \(v(a)=1\)
       \item \(v(z)=0\)
       \item For $x\neq a,z$, we have \(v(x) = \sum_{y\in V}^{} \mathbb{P}_x(X_1=y) v(y) = \sum_{y\in V}^{} \frac{c(x,y)}{\sum_{z\in V} c(x,z) }v(y) = \sum_{y\in V}^{} c(x,y) \frac{v(y)}{c(x)}\) (harmonicity)
-  \end{itemize}
+  \end{enumerate}
 \end{lem}
 \begin{proof}
     To show the harmonicity, we use the Markov property. Since \(x \neq a,z\), \(p^x(\tau_a\geq 1)=1\). The Markov property implies 
@@ -160,7 +154,7 @@ A random walk on a locally finite graph $G=(V,E)$ is a random walk on the networ
     Assume $v_1,v_2$ satisfy the properties of the voltage function. We show $h \equiv v_1-v_2=0$. 
     \begin{enumerate}
       \item By properties 1 and 2, $h(a)=h(z)=0$. 
-      \item For $x\neq a,z$, we have \(h(x) = sum_y \frac{c(x,y)}{c(x)} h(y)\) ($h(x)$ is a weighted average over its neighbors). Assume $h(x) \neq 0$. We assume \OE $h(x) >0$. Let \(M=\max_{}\set*{h(x); x\in V}>0\). Let \(H= \set*{x; h(x)=M}\). Note that $a,z \notin H$. Let $x$ be an element of $H$ with a neighbor $w$ outside of  $H$. Then, the following are true
+      \item For $x\neq a,z$, we have \(h(x) = \sum_y \frac{c(x,y)}{c(x)} h(y)\) ($h(x)$ is a weighted average over its neighbors). Assume $h(x) \neq 0$. We assume \OE $h(x) >0$. Let \(M=\max_{}\set*{h(x); x\in V}>0\). Let \(H= \set*{x; h(x)=M}\). Note that $a,z \notin H$. Let $x$ be an element of $H$ with a neighbor $w$ outside of  $H$. Then, the following are true
         \begin{enumerate}
             \item $x\in H$, thus $h(x)=M$.
             \item 
@@ -184,6 +178,118 @@ A random walk on a locally finite graph $G=(V,E)$ is a random walk on the networ
 \begin{remark}
     In the theory of electrical networks, the (physical) voltage function satisfies the same three properties (up to normalization of the boundary conditions). Therefore, everything that is known about physical electrical networks has the potential of being useful in the understanding of random walks on networks.
 \end{remark}
+
+
+\begin{defn}[Resistance]
+    For an edge $e$, we define its resistance as
+    \[r(e)= \frac{1}{e}\]
+\end{defn}
+
+
+\subsection{Currents and flows}
+
+\begin{defn}[Current]
+    Let $e=(x,y) \in E$. For every \(x,y\) we define the current as
+    \[I(x,y) = \frac{v(x)-v(y)}{r(x,y} = \left(v(x)-v(y)\right) c(x,y)\]
+\end{defn}
+
+
+\begin{lem}[Properties of the current]
+    Let $I$ be the current. Then, the following statements hold:
+    \begin{enumerate}
+      \item \(I(x,y) = -I(y,x)\) (Antisymmetry) 
+      \item For $x\neq a,z$, $\sum_{y\neq x} I(x,y) = 0$ (Kirchhof's node law)
+      \item For a cycle ${x}_{0} , \dots , {x}_{N}=x_0 $, then \(\sum_{n=1}^{N} I(x_{n-1},x_n)r(x_{n-1},x_n) = 0\) (Kirchhof's circuit law)
+    \end{enumerate}
+    
+\end{lem}
+
+\begin{proof}
+    \begin{enumerate}
+      \item follows from $c(x,y)=c(y,x)$.
+      \item Notice that 
+        \begin{align*}
+          \sum_{y\neq x}I(x,y) &= \sum_{y\neq x}c(x,y) \left(v(x)-v(y)\right) \\
+                               &=v(x)\sum_{y\neq x}c(x,y) - \sum_{y\neq x}c(x,y)v(y) \\
+                               &=v(x)c(x) - c(x)\sum_{y\neq x}\frac{c(x,y)}{c(x)}v(y) \\
+                               &=0
+        \end{align*}
+        where we used the harmonity of $v$.
+      \item By definition of $I$, we have $(I\cdot r)(x,y)=v(x)-v(y)$. Thus, we have 
+        \begin{align*}
+          \sum_{n=1}^{N} I(x_{n-1,x_n)r(x_{n-1},x_n)} = \sum_{n=1}^{N} v(x_{n-1})-v(x_n) = 0
+        \end{align*}        
+    \end{enumerate}
+\end{proof}
+
+
+\begin{defn}[Flow]
+    A flow is a function \(F: V^2\to \mathbb{R}\), such that 
+    \begin{enumerate}
+      \item \(F(x,y) = -F(y,x)\)
+      \item If $x \nsim y$, then \(F(x,y)=0\)
+      \item For all \(x\neq a,z\), we have \(\sum_{y\neq x} F(x,y)=0\) (Kirchhof's node law)
+    \end{enumerate}    
+\end{defn}
+
+
+\begin{defn}[Total current]
+    The total current in a network is defined as 
+    \[\sum_{x\neq a} I(a,x)  =\sum_{x\neq z} I(x,z)\]
+\end{defn}
+
+\begin{proof}
+    We prove equality for the two descriptions of total current.
+    \begin{align*}
+      \sum_{x\neq a} I(a,x) - \sum_{x \neq z} I(x,z) &= \sum_{x \neq a}^{} I(a,x) + \sum_{x \neq z}^{} I(z,x) + \underbrace{\sum_{y \neq a,z} \sum_{x \neq y} I(y,x)}_{=0} \\
+                                                     & \stackrel{(\mathrm{I})}{=} \sum_{y} \sum_{x \neq y} I(y,x) \\
+                                                     &=\sum_{\{x,y\} \ssq V} I(x,y) + I(y,x) \\
+                                                     &= 0
+    \end{align*}
+\end{proof}
+
+
+\begin{defn}[Effective resistance]
+    The effective resistance in a network is defined as 
+    \[R_{\mathrm{eff}}(a,z) = \frac{1}{\mathrm{total\;current}}\]
+    Similarly, we denote
+    \[c_{\mathrm{eff}}(a,z) = \mathrm{total\;current}\]
+\end{defn}
+
+
+\begin{nota}[Stopping times]
+    We use the following notation for stopping times 
+    \begin{align*}
+      \tau_x  &= \inf \set*{t\geq0; X_t=x} \\
+      \sigma_x &= \inf \set*{t\geq0; X_t\neq x} \\
+      \eta_x^0 &=0 \\
+      \eta_x &= \inf \set*{t>0; X_t=x} \\
+      \eta_x^{n+1} &= \inf \set*{t > \eta_x^n; X_t=x }
+    \end{align*}
+    Notice that $\tau_x \neq \eta_x$ under $\PP_x$ and $\tau_x=\eta_x$ under $\PP_y$ for $y\neq x$.
+\end{nota}
+
+\begin{lem}[$n$-th return time of Markov chains]
+    Notice that if $X$ is a Markov chain, then we have 
+    \[\eta_x^{n+1} = (\tau_x \circ \theta_{\sigma_x} + \sigma_x) \circ \theta_{\eta_{x}^n} + \eta_{x}^n \]
+\end{lem}
+
+
+\begin{thm}[]
+    We have that
+    \[\mathbb{P}_a \left(\tau_z < \eta_a\right) = \frac{c_{\mathrm{eff}}(a,z)}{c(a))}\]
+\end{thm}
+
+\begin{thm}[Commute time formula]
+    We have that 
+    \[\mathbb{E}_a \left[\tau_z\right] + \mathbb{E}_z \left[\tau_a\right] = 2 R_{\mathrm{eff}}(a,z) + \sum_{e\in E}c(e)\]
+\end{thm}
+
+
+\begin{exer}
+    We have that 
+  \[\mathbb{P}_x(\tau_a< \tau_z) \leq \frac{c_{\mathrm{eff}}(x,a)}{c_{\mathrm{eff}}(x,z)}\]
+\end{exer}
 
 
 

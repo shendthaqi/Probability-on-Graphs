@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.23)  8 MAY 2023 21:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.23)  11 MAY 2023 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -465,27 +465,27 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 
  [1
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./2_Chapters/chapter01.tex [2]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 109.
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./2_Chapters/chapter01.tex [2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 103.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [3]) (./2_Chapters/chapter02.tex) (./2_Chapters/chapter03.tex) (./2_Chapters/chapter04.tex) (./2_Chapters/chapter05.tex) (./2_Chapters/chapter06.tex) [4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5] (./3_Appendix/chapterA.tex) (./3_Appendix/chapterB.tex [6]) (./3_Appendix/chapterC.tex [7]) [8] (./main.aux)
+) [3] [4] [5]) (./2_Chapters/chapter02.tex) (./2_Chapters/chapter03.tex) (./2_Chapters/chapter04.tex) (./2_Chapters/chapter05.tex) (./2_Chapters/chapter06.tex) [6] (./3_Appendix/chapterA.tex) (./3_Appendix/chapterB.tex [7]) (./3_Appendix/chapterC.tex [8]) [9] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 15BB143065EDE7AD314B65B42C906D7A;2181.
+(rerunfilecheck)             Checksum: 59F7131353EA427009B8D65AB7B9ACB4;2335.
  ) 
 Here is how much of TeX's memory you used:
- 13801 strings out of 476025
- 223862 string characters out of 5790017
- 1868388 words of memory out of 5000000
- 33915 multiletter control sequences out of 15000+600000
+ 13824 strings out of 476025
+ 224026 string characters out of 5790017
+ 1869388 words of memory out of 5000000
+ 33920 multiletter control sequences out of 15000+600000
  521862 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,77p,999b,696s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/shendthaqi/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (8 pages, 240211 bytes).
+Output written on main.pdf (9 pages, 249490 bytes).
 PDF statistics:
- 314 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
- 93 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

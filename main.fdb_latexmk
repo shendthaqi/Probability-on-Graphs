@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1683575577 "main.tex" "main.pdf" "main" 1683575578 0
+["pdflatex"] 1683818161 "main.tex" "main.pdf" "main" 1683818161 0
   "/Users/shendthaqi/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1679580412 6964 8aab28cedce4b9a7905440053e176623 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -134,8 +134,8 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1679590388 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1679590320 7883458 257c5575774e34b1462f87be85fca46a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "1_NewCommands/mathabbreviations.tex" 1683298920 3355 ae47e0ed1f9a68e57a56eb39e8fa077b ""
-  "2_Chapters/chapter01.tex" 1683575577 9803 163eb56ca0cad0e6211178eee165c709 ""
+  "1_NewCommands/mathabbreviations.tex" 1683641876 3413 5f7dd08a3edd1e98562ad71ae379f4fc ""
+  "2_Chapters/chapter01.tex" 1683818159 13812 a34a76a66a33aa84ab7b38858f9cd2e1 ""
   "2_Chapters/chapter02.tex" 1682350835 22 615d1621cc608853e450e39a818f4d90 ""
   "2_Chapters/chapter03.tex" 1682350872 24 49735d5e7ebb521010db5eecfc071c04 ""
   "2_Chapters/chapter04.tex" 1682350818 23 d2976d5967bedb90fbfc0e55ea30de0e ""
@@ -144,10 +144,10 @@
   "3_Appendix/chapterA.tex" 1682775647 893 cfdf52aafd11718ecf225a6197d3b403 ""
   "3_Appendix/chapterB.tex" 1682610698 1767 0d01abc35e196974961a7196d0b62ef3 ""
   "3_Appendix/chapterC.tex" 1682954764 3341 41b5169e85d2948dcd42bf4064b14b7a ""
-  "main.aux" 1683575578 2531 19c5b11119a285986f2dad6538453c5c "pdflatex"
-  "main.out" 1683575578 2181 15bb143065ede7ad314b65b42c906d7a "pdflatex"
+  "main.aux" 1683818161 2656 794dd6f5f8b43be8553a870f5f1089b8 "pdflatex"
+  "main.out" 1683818161 2335 59f7131353ea427009b8d65ab7b9acb4 "pdflatex"
   "main.tex" 1683575346 1179 52111a1d9b67766d66be068f5e4796a7 ""
-  "main.toc" 1683575578 1271 e9e6abf6b83b495330da8cc74ec1e2df "pdflatex"
+  "main.toc" 1683818161 1355 e4ea5600e56253bb5ed0a429d9215bb1 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
