@@ -43,7 +43,7 @@ ede
 
 
 \begin{lem}[Example]
-  $V=\ZZ, E= \cub{(v,u) \fil u\neq v\in V}$ with $c(v,u)=\frac{1}{\abs{u-v}^2}$.
+  $V=\ZZ$, $E= \cub{(v,u) \fil u\neq v\in V}$ with $c(v,u)=\frac{1}{\abs{u-v}^2}$.
 \end{lem}
 
 
@@ -120,7 +120,7 @@ A random walk on a locally finite graph $G=(V,E)$ is a random walk on the networ
   Let $G=(V,E,c)$ be a finite connected network. We consider the simple random walk defined as above. Then, every state $x$ is recurrent. We have $\PP_x(\tau_a < \infty)= \mathbb{P}_x(\tau_z<\infty)=1$.
 \end{fact}
 \begin{proof}
-  For every $x$, let $\gamma_x$ be a path from $x$ to $a$. Let $h_x$ be the probability that the random walk takes the path $\gamma_x$ immediately starting in $x$. Let $h= \min_{x\in V}h_x>0$. Let $\mathcal{F}_n ) = \sigma(X_1, \dots, X_N), \, \mathcal{F}=\sigma(X_1, X_2, \dots)$. Then, $\set*{\tau_a < \infty } \in \FFF$. By Kolmogorov's 0-1-law, $\mathbb{P}_x \setround*{\tau_a<\infty ; \FFF} \in \set*{0,1 }$. We have \(\mathbb{P}_x \setround*{\tau_a < \infty  ; \mathcal{F}} = \lim_{n \to \infty} \mathbb{P}_x \setround*{\tau_a < \infty ; \mathcal{F}_n}\). We have \(\mathbb{P}_x \setround*{\tau_a < \infty ;\mathcal{F}_n} \geq h \). Thus, \(\mathbb{P}_x \setround*{\tau_a <\infty  ;\mathcal{F}}\geq h\). It follows from the 0-1-law, $\mathbb{P}_x \setround*{ \tau_a < \infty ;\mathcal{F}}=1$ and thus \(\mathbb{P}_x(\tau_a < \infty) = \mathbb{E} \left[\mathbb{P}_x \setround*{\tau_a <\infty; \mathcal{F}}\right]\). 
+For every $x$, let $\gamma_x$ be a path from $x$ to $a$. Let $h_x$ be the probability that the random walk takes the path $\gamma_x$ immediately starting in $x$. Let $h= \min_{x\in V}h_x>0$. Let $\mathcal{F}_n ) = \sigma(X_1, \dots, X_N), \, \mathcal{F}=\sigma(X_1, X_2, \dots)$. Then, $\set*{\tau_a < \infty } \in \FFF$. By Kolmogorov's 0-1-law, $\mathbb{P}_x \setround*{\tau_a<\infty ; \FFF} \in \set*{0,1 }$. We have \(\mathbb{P}_x \setround*{\tau_a < \infty  ; \mathcal{F}} = \lim_{n \to \infty} \mathbb{P}_x \setround*{\tau_a < \infty ; \mathcal{F}_n}\). We have \(\mathbb{P}_x \setround*{\tau_a < \infty ;\mathcal{F}_n} \geq h \). Thus, \(\mathbb{P}_x \setround*{\tau_a <\infty  ;\mathcal{F}}\geq h\). It follows from the 0-1-law, $\mathbb{P}_x \setround*{ \tau_a < \infty ;\mathcal{F}}=1$ and thus \(\mathbb{P}_x(\tau_a < \infty) = \mathbb{E} \left[\mathbb{P}_x \setround*{\tau_a <\infty; \mathcal{F}}\right]\). 
 \end{proof}
 
 
@@ -204,7 +204,7 @@ A random walk on a locally finite graph $G=(V,E)$ is a random walk on the networ
     
 \end{lem}
 
-\begin{proof}
+\begin{proof} \,
     \begin{enumerate}
       \item follows from $c(x,y)=c(y,x)$.
       \item Notice that 
