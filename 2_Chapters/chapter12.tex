@@ -1,0 +1,29 @@
+\section{Modified log-Sobolev inequality and applications}
+
+\begin{thm}[Modified LSI]
+Let $X_n\in \Omega_n$ be independent random variables, $f_n: \Omega_1\times \dots \times \Omega_{n-1} \times \Omega_{n+1} \times \dots \times \Omega_N \to \RR$ be measurable and $Z_n = f_n(X_1,\dots X_{n-1}, X_{n+1}, \dots X_N)$ for $n \in \cub{\N}$ and $f:\Omega_1 \times \dots \times \Omega_N\to \RR$ be measurable and $Y= f(\XN)$. Then, for any $t\in \RR$,
+$$\Ent{e^{tY}} \leq \EE[\sumn \EE_n[e^{tY} \phi(t(Z_n-Y))]]$$
+with $\phi(t)=e^{t}-t-1$.
+\end{thm}
+
+
+\begin{thm}[Error in Jensen's inequality]
+    Let $I\ssq \RR$ be an interval and $f: I \to \RR$ be convex. Then for any random variable $X$ with $X\in I$ almost surely and all $a\in I$, 
+    $$\EE[f(X)]-f(\EE[X]) \leq \EE[f(X)-f(a)-f'(a)(X-a)]$$
+\end{thm}
+
+
+\begin{thm}[Generalized bounded difference inequality]
+    Let $X=(\XN) \in \OxN$ be a vector of independent random variables and $X'_1, \dots, X'_N$ be independent copies. Let $f: \OxN \to \RR$ be measurable and $X^{(n)}:= (X_1, \dots, X_{n-1}, X'_n, X_{n+1}, \dots X_n)$
+    \begin{enumerate}
+        \item Assume that a.s. for some $\nu>0$, we have $\sumn (f(X)-f(X^{(n)}))_+^2 \leq \nu$. Then 
+        $$\PP(f(X)- \EE[f(X)] > \lambda) \leq \exp\left(- \frac{t^2}{2 \nu}\right)$$
+        \item Assume that a.s. for some $\nu>0$, we have $\sumn (f(X)-f(X^{(n)}))_-^2 \leq \nu$. Then 
+        $$\PP(-(f(X)- \EE[f(X)]) > \lambda) \leq \exp\left(- \frac{t^2}{2 \nu}\right)$$
+    \end{enumerate}
+\end{thm}
+
+\begin{thm}[Talagrand]
+    Let $A'=A\in \RR^{N\times N}$ be random with independen tentries above diagonal and $\abs{A_{nm}}\leq 1$ a.s. Then, for some $0<c<\infty$, which is independent of $N$ and all $\lambda>0$
+    $$\PP(\abs{A}- \EE\norm{A} > \lambda) \leq e^{-c\lambda^2}$$
+\end{thm}
