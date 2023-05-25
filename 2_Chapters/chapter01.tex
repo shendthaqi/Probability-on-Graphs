@@ -276,14 +276,67 @@ For every $x$, let $\gamma_x$ be a path from $x$ to $a$. Let $h_x$ be the probab
 
 
 \begin{thm}[]
-    We have that
-    \[\mathbb{P}_a \left(\tau_z < \eta_a\right) = \frac{c_{\mathrm{eff}}(a,z)}{c(a))}\]
+
+    Let \(G=(V,E,c)\) be a connected network, \(a\neq z \in V\). Let \(\tau_x:=\inf_{} \set*{n\geq 0 ; X_n=x}\) and \(\eta_{x}=\inf_{} \set*{n\geq 1 ; X_n=1}\). Then, 
+    \[\mathbb{P}_a \left(\tau_z < \eta_a\right) = \frac{c_{\mathrm{eff}}(a,z)}{c(a)}\]
 \end{thm}
+
+\begin{proof}
+    We have that 
+    \begin{align*}
+      \mathbb{P}_a(\tau_z < \eta_a) &= \sum_x \mathbb{P}_a(X_1=x)\mathbb{P}_x(\tau_z < \eta_a) \\
+                                    &=\sum_x \frac{c(a,x)}{c(a)} \cdot (\underbrace{1}_{v(a)}-\underbrace{\mathbb{P}_x(\tau_a-\tau_z)}_{v(x)}) \\
+                                    &=\frac{1}{c(a)} \sum_x c(a,x) \left(v(a)-v(x)\right) \\
+                                    &=\frac{1}{c(a)}\sum_x I(a,x) \\
+                                    &=\frac{c_{\mathrm{eff}}(a,z)}{c(a)}
+    \end{align*}
+    
+\end{proof}
+
 
 \begin{thm}[Commute time formula]
     We have that 
     \[\mathbb{E}_a \left[\tau_z\right] + \mathbb{E}_z \left[\tau_a\right] = 2 R_{\mathrm{eff}}(a,z) + \sum_{e\in E}c(e)\]
 \end{thm}
+
+\begin{proof} We first provide facts about Markov chains.
+    \begin{enumerate}
+      \item Every Markov chain on a finite state space has an invariant distribution. If the Markov chain is a random walk on a finite connected network, then 
+        \[\mu(x)=\frac{c(x)}{2 \sum_{e\in E}c(e)}\]
+        is the unique invariant distribution, since 
+        \begin{enumerate}[i)]
+          \item \(\mu \) is a distribution: \(\mu(x)\geq 0\) holds since $c\geq 0$, and 
+            \begin{align*}\sum_x \mu(x) &= \frac{1}{2 \sum_{e\in E} c(e)}\sum_x \left(\sum_y c(x,y)\right) \\
+              &= \frac{1}{2 \sum_{e\in E}c(e)} \cdot 2 \sum_{e\in E} c(e) \\
+              &=1
+            \end{align*}
+          \item \(\mu\) is invariant: Let $X=_d \mu$, then for every $x$
+            \begin{align*}
+              \mathbb{P}_{\mu }&= \sum_y \mathbb{P}_{\mu }(X_0=y) \mathbb{P}_{\mu } \setround*{X_1 ;X_0=y} \\
+                               &= \sum_y \mu(y) \cdot \frac{c(x,y)}{c(y)} \\
+                               &=\frac{1}{2 \sum_e c(e)} \sum_y c(y) \frac{c(x,y)}{c(y)} \\
+                               &=\frac{1}{2 \sum_e c(e)}c(x) \\
+                               &= \mu(x)
+            \end{align*}
+        \end{enumerate}
+      \item \(\mathbb{E}_x[\eta_x] = \frac{1}{\mu(x)}\). We sketch the proof of this claim: Let \(\mu \) be stationary and invariant distribution, i.e. \(X_n =_d \mu\) for all $n\geq 0$. Then, for large $N$, $\mu(x)\cdot N$ is approximately the number of times we are at $x$. Thus, for the average distance between appearances of $x$, we have  \(\EE[\eta_x^{n+1}-\eta_x^n]=\frac{1}{\mu(x)}\). This can be shown using the Markov property to derive $\eta_x^1=_d \eta_x^{n+1}- \eta_x^n$ and using the Law of Large Numbers. 
+      \item Let \(\eta_a^1, \eta_a^2, \dots\) be the consecutive return times to \(a\). Let \(m:=\inf_{} \set*{k\geq 0; \eta_a^{k-1}< \tau_z < \eta_a^k}\). Then
+        \begin{align*}
+          \mathbb{E}_{a}[\tau_z] + \mathbb{E}_{z}[\tau_a] &= \mathbb{E}_{a}[\eta_a^m] \\
+                                                          &=\mathbb{E}_{a}[\eta_a^{m-1}]+ \mathbb{E}_a[\eta_a^m - \eta_a^{m-1}] \\
+                                                          &=\mathbb{E}_a[m-1]\mathbb{E} \setsquared*{\eta_a^1 ; \eta_{a}^1 < \tau_z} + \mathbb{E}_{a} \setsquared*{\eta_a^1 ;\tau_z < \eta_a^n} \\ &= \mathbb{E}[\mathrm{Geom}(\mathbb{P}_{a}(\tau_z<\eta_A)-1] \cdot \mathbb{E}_{a} \setsquared*{\eta_a^1 ;\eta_a^1 < \tau_z} + \frac{\mathbb{P}_{a}(\tau_z<\eta_a^1)}{\mathbb{P}_a(\tau_z< \eta_a^1)} \mathbb{E}_a \setsquared*{\eta_a^1 ;\tau_z < \eta_a^1} \\
+                                                          &=\left(\frac{1}{\mathbb{P}_a(\tau_z < \eta_a^1)}-1\right) \mathbb{E}_a \setsquared*{\eta_a^1 ;\eta_a^1< \tau_z} + \frac{\mathbb{P}_{a}(\tau_z<\eta_a^1)}{\mathbb{P}_a(\tau_z< \eta_a^1)} \mathbb{E} \setsquared*{\eta_a^1  ;\tau_z < \eta_a^1} \\
+                                                          &=\frac{1}{\mathbb{P}_a (\tau_z< \eta_a^1)} \left[\mathbb{P}_a(\eta_a^1<\tau_z) \mathbb{E}_a \setsquared*{\eta_a^1 ;\eta_a^1 < \tau_z}+ \mathbb{P}_a(\tau_z<\eta_a^1)  \mathbb{E}_a \setsquared*{\eta_a^1 ;\tau_z < \eta_a}\right] \\
+                                                          &=\frac{1}{\mathbb{P}_a(\tau_z < \eta_a^1} \mathbb{E}_a[\eta_a^1] \\
+                                                          &= \frac{2 \sum_e c(e)}{c(a)} / \frac{c_{\mathrm{eff}(a,z)}}{c(a)} \\
+                                                          &=2 \frac{\sum_e c(e)}{c_{\mathrm{eff}}(a,z)} \\
+                                                          &=2 R_{\mathrm{eff}(a,z)} \sum_e c(e)
+        \end{align*}
+        
+    \end{enumerate}
+
+\end{proof}
+
 
 
 \begin{exer}
@@ -291,6 +344,21 @@ For every $x$, let $\gamma_x$ be a path from $x$ to $a$. Let $h_x$ be the probab
   \[\mathbb{P}_x(\tau_a< \tau_z) \leq \frac{c_{\mathrm{eff}}(x,a)}{c_{\mathrm{eff}}(x,z)}\]
 \end{exer}
 
+To make use of these theorem, we need to be able to estimate (or calculate) effective resistance/conductance. In some examples we are capable of calculating effective resistances.
 
+\begin{fact}
+    We have the following: 
+    \begin{enumerate}[1)]
+      \item in $d=1$, \(R_{\mathrm{eff}}(0,n)=n\)
+    \item in $d=2$, \(R_{\mathrm{eff}} \left((0,0),(n,n)\right)=\mathcal{O}(\ln n)\)
+    \item in $d=3$, \(R_{\mathrm{eff}} \left((0,0,0),(n,n,n)\right)=\mathcal{O}(n) \)
+    \end{enumerate}
+Thus, we have 
+\begin{align*}
+  \mathbb{E}_{a,0}[\tau_{n,n}] &= \frac{1}{2} \left(\mathbb{E}_{a,0}[\tau_{n,n}]+ \mathbb{E}_{n,n}[\tau_{0,0}]\right) \\
+                               &=\frac{1}{2} 2 R_{\mathrm{eff}} \left((0,0),(n,n)\right) \sum_e c(e) \\
+                               &=\mathcal{O}(n^2 \cdot \ln n)
+\end{align*} 
 
-
+\end{fact}
+ 
