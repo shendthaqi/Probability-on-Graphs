@@ -395,13 +395,13 @@ and the \emph{boundary operator} as
 \begin{proof}
     We show the proof in two steps:
     \begin{enumerate}[]
-      \item \(- \sum_{e: \widehat{e=v}}\theta(e) = \sum_{e: \widehat{e}=v} \theta(-e) = \sum_{e: \widecheck{e}=v} \theta(e) = d^*\theta(v)\).
+      \item \(- \sum_{e: \widehat{e}=v}\theta(e) = \sum_{e: \widehat{e}=v} \theta(-e) = \sum_{e: \widecheck{e}=v} \theta(e) = d^*\theta(v)\).
       \item By definition of the scalar product, we have
         \begin{align*}
           \left\langle \theta,df \right\rangle &= \frac{1}{2}\sum_e \theta(e) \cdot \left(f( \widecheck{e})- f( \widehat{e}) \right) \\
                                                &=\frac{1}{2}\sum_e \theta(e) f( \widecheck{e}) - \frac{1}{2} \sum_e \theta(e) f( \widehat{e}) \\
                                                &=\frac{1}{2}\sum_v f(v) \sum_{e: \widecheck{e}=v}\theta(e) - \frac{1}{2} \sum_v f(v)\sum_{e: \widehat{e}=v} \theta(v) \\
-                                               &\overset{\mathclap{1.}}{=} \sum_v f(v)\cdot(d^*\theta)(v) \\
+                                               &\overset{\mathclap{1.}}{=} \sum_v f(v)\cdot d^*\theta(v) \\
                                                &= \left\langle d^*\theta, f \right\rangle 
         \end{align*}
     \end{enumerate}
@@ -493,7 +493,7 @@ and the \emph{boundary operator} as
     We show the proof in two steps:
     \begin{enumerate}[]
       \item Existence: Let \(v_0\in V\) and set \(\mathcal{U}(v_0)=0\). For \(u\in V\), let \((v_0,\dots, v_N=u)\) be a path from \(v_0\) to \(u\). We define \[\mathcal{U}(u)=\sum_{n=1}^{N}r_{\{v_{n-1},v_{n}\}}i(v_{n}, v_{n-1}) \]
-        Let \((w_0=v_0, \dots, w_m=v_n\) be a second path, then \((v_0, \dots, v_n=w_m, \dots, w_0=v_0\) is a cycle, Thus, 
+        Let \((w_0=v_0, \dots, w_m=v_n)\) be a second path, then \((v_0, \dots, v_n=w_m, \dots, w_0=v_0)\) is a cycle, Thus, 
         \[\sum_{n=1}^{N} r_{\{v_{n-1},v_n\}} i(v_{n},v_{n-1})=0 \]
         Thus, \(\mathcal{U}\) is well-defined. For \(\{u,v\} \in E\), we can join the edge to the path \[\mathcal{U}(v) = \mathcal{U}+r_{\{u,v\}}i(v,u)\]
         Then, we have \(i(v,u) = \frac{1}{r_{\{u,v\}}} \left(\mathcal{U}(v)-\mathcal{U}(u)\right)\). Then, the current \(i\) is associated to \(\mathcal{U}\). Harmonicity on \(W\) follows from Kirchhoff's node law.
