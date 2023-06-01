@@ -361,4 +361,144 @@ Thus, we have
 \end{align*} 
 
 \end{fact}
- 
+
+
+\begin{defn}[Associated Hilbert space]
+    Let \(G=(V,E)\) be a graph of bounded degree, i.e. \(\sup_{v\in V} \operatorname{deg}v<\infty \). We define the associated Hilbert space 
+    \[\ell^2(V) := \set*{f: V \to \mathbb{R}; \sum_v f^2(v) < \infty }\]
+with the scalar product 
+\[\left\langle f, g \right\rangle =  \sum_v f(v)\cdot g(v) \quad \text{for \(f,g \in \ell^2(V).\)}\]
+For \(e=(u,v)\), we define \(\widecheck{e}=u, \widehat{e}=v\) and \(-e=(v,u)\). We define the associated Hilbert space 
+\[\ell^2_{-}(E):= \set*{\theta: E \to \mathbb{R}; \sum_e \theta(e)< \infty,\, \theta(-e)=-\theta(e) }\]
+with the scalar product
+\[ \left\langle \theta, \eta \right\rangle = \frac{1}{2} \sum_e \theta(e) \cdot \eta(e)\]
+
+\end{defn}
+
+\begin{defn}[Boundary and coboundary operator]
+We define the \emph{coboundary operator} as 
+\[d: \ell^2(V) \to \ell^2_{-}(E),\, df(e)=f(\widecheck{e})-f(\widehat{e}) \quad\text{for \(e\in E\).}\]
+and the \emph{boundary operator} as 
+\[d^*: \ell^2_{-}(E) \to \ell^2(V),\, d^*\theta(v)=\sum_{e: \widecheck{e}=v} \theta(e) \quad\text{for \(v\in V\).} \]
+   
+
+\end{defn}
+
+\begin{exer}[]
+    Show that $d,d^*$ are well-defined.
+\end{exer}
+
+\begin{lem}[]
+    \(d,d^*\) are adjoint linear maps, i.e. for all \(f \in \ell^2(V), \theta \in \ell^2_{-}(E)\), we have \( \left\langle \theta, df \right\rangle = \left\langle d^*\theta, f \right\rangle  \).
+\end{lem}
+
+\begin{proof}
+    We show the proof in two steps:
+    \begin{enumerate}[]
+      \item \(- \sum_{e: \widehat{e=v}}\theta(e) = \sum_{e: \widehat{e}=v} \theta(-e) = \sum_{e: \widecheck{e}=v} \theta(e) = d^*\theta(v)\).
+      \item By definition of the scalar product, we have
+        \begin{align*}
+          \left\langle \theta,df \right\rangle &= \frac{1}{2}\sum_e \theta(e) \cdot \left(f( \widecheck{e})- f( \widehat{e}) \right) \\
+                                               &=\frac{1}{2}\sum_e \theta(e) f( \widecheck{e}) - \frac{1}{2} \sum_e \theta(e) f( \widehat{e}) \\
+                                               &=\frac{1}{2}\sum_v f(v) \sum_{e: \widecheck{e}=v}\theta(e) - \frac{1}{2} \sum_v f(v)\sum_{e: \widehat{e}=v} \theta(v) \\
+                                               &\overset{\mathclap{1.}}{=} \sum_v f(v)\cdot(d^*\theta)(v) \\
+                                               &= \left\langle d^*\theta, f \right\rangle 
+        \end{align*}
+    \end{enumerate}
+    
+\end{proof}
+
+
+\begin{remark}[]
+    We have the following results:
+    \begin{itemize}
+      \item Ohm's law:  \(dU(e) = i(e)\cdot r_{e}\);
+      \item Kirchhoff's node law: \(d^*i(v) = 0\) for \(v \in V \setminus (A \cup Z)\).
+    \end{itemize}
+    
+\end{remark}
+
+\begin{defn}[Flow and strength]
+   \(\theta\) is called a \emph{flow} ffrom \(A\) to \(Z\) if 
+   \begin{enumerate}[1)]
+     \item \(d^*\theta \geq 0\) on \(A\);
+     \item \(d^*\theta =0\) on \(V \setminus (A\cup Z)\); 
+     \item \(d^*\theta\leq 0\) on \(Z\).
+   \end{enumerate}
+   We define the \emph{strength} of a flow \(\theta\) as \( \operatorname{strength}(\theta) = \sum_{a\in A} d^*\theta(a)  \).
+\end{defn}
+
+\begin{lem}[Flow conversion]
+    Let \(G\) be a finite graph and \(theta\) be a flow from \(A\) to \(Z\) with \(A,Z \subseteq  V\) and \(A \cap Z = \emptyset \). Then, 
+    \[\sum_{a \in A} d^* \theta(a) = - \sum_{z\in Z} d^*\theta(z)\]
+    Furthermore, if \(f:V \to \mathbb{R}\) such that \(f\vert_A = \alpha \) and \(f\vert_Z=\zeta\), then \( \left\langle \theta, df \right\rangle = \operatorname{strength}(\theta)(\alpha-\zeta)\).
+\end{lem}
+
+
+\begin{proof}
+   We show the proof in two steps:
+  \begin{enumerate}[]
+    \item We have by defintion of the scalar product
+      \begin{align*}
+        \sum_{a\in A} d^* \theta(a) + \sum_{v\in V \setminus (A\cap Z)} d^*\theta(v) + \sum_{z\in Z} d^*\theta(z) &= \left\langle d^*\theta, \mathbbm{1}_V \right\rangle \\
+                                                                                                                  &= \left\langle \theta, d \mathbbm{1}_V \right\rangle \\
+                                                                                                                  &=0
+      \end{align*}
+    \item To show the second statement, notice that 
+      \begin{align*}
+        \left\langle \theta, df \right\rangle &= \left\langle d^*\theta, f \right\rangle \\
+                                              &=\sum_{v\in V} d^*\theta(v)\cdot f(v) \\ 
+                                              &=\sum_{a\in A} d^*\theta(a)\cdot f(a) + \sum_{z\in Z} d^*\theta(z)\cdot f(z) \\
+                                              &\overset{\mathclap{1.}}{=} \operatorname{strength}(\theta)(\alpha-\zeta)
+      \end{align*}
+      
+  \end{enumerate}
+  
+\end{proof}
+
+\begin{defn}[Energy]
+    For antisymmetric fucntions \(\theta, \eta\), we define the scalar product
+    \[ \left\langle \theta, \eta \right\rangle_r = \frac{1}{2}\sum_{e}\theta(e)\cdot \eta(e)\cdot r_{e}\]
+    We define the \emph{energy} of an antisymmetric function \(\theta\) as \(\mathcal{E}(\theta)=\norm{\theta}_{r}^2 = \frac{1}{2}\sum_{e}\theta(e)\cdot r_{e}\).
+\end{defn}
+
+
+\begin{lem}[]
+    Let \(i: E \to \mathbb{R}\) be a unit current flow from \(A\) to \(Z\) such that the voltage \(\mathcal{U}\) satisfies \(\mathcal{U}\vert_A= \mathcal{U}_A\) and \(\mathcal{U}\vert_Z=\mathcal{U}_Z\). Then, \(\mathcal{E}(i)=\mathcal{U}_A- \mathcal{U}_Z= R_{\mathrm{eff}}(A \leftrightarrow Z)\). 
+\end{lem}
+
+\begin{proof}
+    By Ohm's law, we have 
+    \begin{align*}
+      \mathcal{E}(i) &= \left\langle i,i \right\rangle_r \\
+                     &= \left\langle i,ri \right\rangle \\
+                     &= \left\langle i,dU \right\rangle \\
+                     &= \left(\mathcal{U}_A- \mathcal{U}_Z\right) \underbrace{\operatorname{strength}(i)}_{=1} \\
+                     &=\mathcal{U}_A-\mathcal{U}_Z
+    \end{align*}
+    Since all vertices in \(A\) have the same voltage, we can identify them as one point \(a\). Then,
+    \begin{align*}
+      c_{\mathrm{eff}}(a \leftrightarrow Z) &= \sum_{x\neq a} \theta(a,x) \\
+                                            &= \sum_{x\neq a} \frac{i(a,x)}{\mathcal{U}_A-\mathcal{U}_Z} \\
+                                            &= \frac{1}{\mathcal{U}_A-\mathcal{U}_Z}
+    \end{align*}
+    This is equivalent to \(R_{\mathrm{eff}}=\mathcal{U}_A \cdot \mathcal{U}_Z\).    
+\end{proof}
+
+\begin{lem}[]
+    Let \(i: E \to \mathbb{R}\) be antisymmetric satisfying Kirchhoff's cycle law. Suppose \(i\) satisfies Kirchhoff's node law on \(W \subseteq V\). Then, there exists a function (voltage) \(\mathcal{U}: V \to \mathbb{R}\), such that \(U\) is harmonic on \(W\) and \(i\) is the current associated with \(\mathcal{U}\). The voltage is unique up to addition. 
+\end{lem}
+
+\begin{proof}
+    We show the proof in two steps:
+    \begin{enumerate}[]
+      \item Existence: Let \(v_0\in V\) and set \(\mathcal{U}(v_0)=0\). For \(u\in V\), let \((v_0,\dots, v_N=u)\) be a path from \(v_0\) to \(u\). We define \[\mathcal{U}(u)=\sum_{n=1}^{N}r_{\{v_{n-1},v_{n}\}}i(v_{n}, v_{n-1}) \]
+        Let \((w_0=v_0, \dots, w_m=v_n\) be a second path, then \((v_0, \dots, v_n=w_m, \dots, w_0=v_0\) is a cycle, Thus, 
+        \[\sum_{n=1}^{N} r_{\{v_{n-1},v_n\}} i(v_{n},v_{n-1})=0 \]
+        Thus, \(\mathcal{U}\) is well-defined. For \(\{u,v\} \in E\), we can join the edge to the path \[\mathcal{U}(v) = \mathcal{U}+r_{\{u,v\}}i(v,u)\]
+        Then, we have \(i(v,u) = \frac{1}{r_{\{u,v\}}} \left(\mathcal{U}(v)-\mathcal{U}(u)\right)\). Then, the current \(i\) is associated to \(\mathcal{U}\). Harmonicity on \(W\) follows from Kirchhoff's node law.
+      \item Uniqueness: For a given \(\mathcal{U}(v_0)\), we can define \(\mathcal{U}(u)\) inductively by Ohm's law. 
+    \end{enumerate}
+    
+\end{proof}
+
