@@ -626,3 +626,58 @@ Hence, \(C_{\mathrm{eff}}^{G_1}(a,z) \leq C_{\mathrm{eff}}^{G_2}(a,z)\). The sec
     What is \(\mathcal{E}(F)\) of a binary tree with three edges at the origin? At level \(n\), we have \(3 \cdot 2^n\) edges, each carries a flow of \((3 \cdot 2^n)^{-1}\). Thus, \(\mathcal{E}(F)= \sum_{n=0}^{\infty} 3 \cdot 2^n \cdot {3 \cdot 2^n}^{-2} < \infty \).
 \end{exm}
 
+From Thomson's principle we get monotonicity: If \(G\) is recurrent and \(G'\) is a subgraph of \(G\), then \(G'\) is recurrent as well. The argument is as follows. Let \(F\) be a flow on \(G'\), then \(F\) is also a flow on \(G\) and \(\mathcal{E}^{G'}(F) = \mathcal{E}^{G}(F)= \infty \) since \(G\) is recurrent. Thus, \(G'\) is recurrent. As a result we find a way to prove transience. Namely, we have to find a flow with finite energy. We now find a criterion for recurrence.
+
+
+\begin{defn}[Cutset]
+  Let \(G=(V,E,c) \) be an infinite network and let \(a \in  V\). A set \(\Pi \subseteq E\) is called a \emph{cutset} if every infinity simple path starting from \(a\) has non-empty intersection with \(\Pi\). We define the conductance of \(\Pi\) as \(\sum_{e \in \Pi}c(e)\).
+\end{defn}
+
+
+\begin{thm}[Nash-Williams]
+    Let \((\Pi_n)_n\) be a sequence of disjoint cutsets, then \(R_{\mathrm{eff}}(a,\infty) \leq \sum_{n=1}^{\infty} \frac{1}{c(\Pi_n)}\).
+\end{thm}
+
+\begin{proof}
+    Let \(F\) be a unit flow from \(a\) to \(\infty \). For all \(n\), \(\sum_{e \in \Pi_n} \abs{F(e)}  \leq 1\), since the amount of flow going through the cutset is at least 1). Thus,
+    \begin{align*}
+      \mathcal{E}(F) &= \frac{1}{2} \sum_{e \in E}^{} \frac{\abs{F(e)} ^2}{c(e)} \\
+                     &= \sum_{n=1}^{\infty} \left(\sum_{e \in \Pi_n}^{} \frac{\abs{F(e)} ^2}{c(e)}\right) \\
+                     &\overset{(1)}{\geq} \sum_{n=1}^{\infty} \frac{1}{\sum_{e \in \Pi_n }^{} c(e)} \\
+                     &= \sum_{n=1}^{\infty}  \frac{1}{c(\Pi_n)}.
+    \end{align*}
+(1) follows from Sedrakyan's lemma.  
+\end{proof}
+
+\begin{lem}[Sedrakyan's lemma]
+    Let \(\sum_{n=1}^{N} x_n \geq 1\) and \(c_1, \dots, c_N >0\). Then
+    \[\sum_{n=1}^{N} \frac{x_n^2}{c_n} \geq \frac{1}{\sum_{n=1}^{N} c_n}.\]
+\end{lem}
+
+
+\begin{thm}[]
+    \(\mathbb{Z}^3\) is transient.
+\end{thm}
+
+\begin{proof}
+    We provide a flow of finite energy by Y. Peres. This is done in the following steps:
+    \begin{enumerate}[1.]
+      \item Define the dual of \(\mathbb{Z}^3\). For every edge \(e \in E(\mathbb{Z}^3)\), take the dual \(e'\) to the plaquette perpendicualr to \(e\). 
+      \item Consider a sphere with surface area of 1 around the origin.
+      \item The flow is directed away from the origin. The intensity of the flow is the area of the projection of the plaquette on the sphere.
+    \end{enumerate}
+    We have to show that this in fact defines a flow (i) and find a bound of \(\mathcal{E}(F)\) (ii). 
+    \begin{enumerate}[(i)]
+      \item We need to show that for every \(x \neq 0 =: a\), the amount going in is the same as the amount going out.
+      \item \(\abs{F(e)} = \text{[size of projection]}\). Each axis of the projection is at most \(\frac{1}{\abs{e} }\). Thus, the area of the projection is at most \(\frac{1}{\abs{e}^2} \). Hence, 
+        \begin{align*}
+          \mathcal{E}(F) &\leq \sum_{e \in E(\mathbb{Z}^3)} \left(\frac{1}{\abs{e} ^2}\right)^2 \\
+            &\leq\sum_{n=1}^{\infty} \left(\frac{1}{n^2}\right)^2  \operatorname{card}\set*{e; n \leq \abs{e} \leq n+1}\\
+            &\leq c \sum_{n=1}^{\infty} \frac{1}{n^2} < \infty.
+        \end{align*}
+        
+    \end{enumerate}
+    
+\end{proof}
+
+
