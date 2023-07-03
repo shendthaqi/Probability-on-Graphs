@@ -681,3 +681,95 @@ From Thomson's principle we get monotonicity: If \(G\) is recurrent and \(G'\) i
 \end{proof}
 
 
+
+\subsection{Spherically symmetric trees}
+
+\begin{defn}[Rooted tree]
+    
+\end{defn}
+
+\begin{defn}[Spherically symmetric tree]
+    A rooted tree \((T, \rho) \) is called \emph{spherically symmetric} if for all \(u,v \in T\), we have \[d(v,\rho)= d(u,\rho) \implies \operatorname{deg}u= \operatorname{deg}v.\]
+    If \((T, \rho\) is such a spherically tree. We define \[f(n):=[\text{outwards degree of vertices at distance \(n\) from \(\rho\)}]\]. Then, \((T,\rho)\) is determined by \(f(n))_n\) up to an isometry (rotation). We further set \(g(N):= \sum_{n=1}^{N} f(n)\) as the number of vertices at distance at distance \(n\) from \(\rho\).
+\end{defn}
+
+
+\begin{thm}[]
+  Let \(T\) be a spherically symmetric tree. Then, the following statements are equivalent:
+  \begin{enumerate}[1)]
+    \item \(T\) is recurrent;
+    \item \(\sum_{n=1}^{\infty} \frac{1}{g(n)}=\infty \).
+  \end{enumerate}
+  Notice, that \([2) \implies 1]\) even if \(T \) is a general graph instead of a spherically symmetric tree. The converse implication fails.
+\end{thm}
+
+\begin{proof}
+    \begin{enumerate}[]
+      \item \([2) \implies 1)]\). Define \(\Pi_n= \set*{(u,v); d(v,\rho)=n-1,\, d(u,\rho)=n}\). Then, \((\Pi_n)_n\) is a sequence of disjoint cutsets, and setting \(c(\Pi_n)=g(n)\) yields \(\sum_{n=1}^{\infty} \frac{1}{c(\Pi_n)}= \infty \). Thus \(T\) is recurrent.
+      \item Assume to the contrary that \(\sum_{n=1}^{\infty} \frac{1}{g(n)}\). We define a flow \(F\) as follows. Let \(e=(u,v)\) such that \(d(u,\rho)=d(v,\rho)-1\) (i.e. \(v\) is parent of \(u\)). We then set \(\abs{F(u,v)}=\frac{1}{g(n)}\) for \(n=d(v,\rho)\) (Notice, that this defines a flow only on a spherically symmetric tree!). We then obtain
+        \begin{align*}
+          \mathcal{E}(F) &= \frac{1}{2}\sum_e \abs{F(e)} ^2 \\
+                         &=\frac{1}{2}\sum_{n=1}^{\infty} \sum_{{u:d(u,\rho)=n}}^{} \abs{F(\underbrace{u'}_{\text{parent of \(u\)}},u)}^2 \\
+                         &= \frac{1}{2} \sum_{n=1}^{\infty} \underbrace{g(n)}_{\text{number of vertices}} \underbrace{\left(\frac{1}{g(n)}\right)^2}_{\text{intensity}} \\
+                         &= \infty 
+        \end{align*}
+        Thus, we have transience. 
+    \end{enumerate}
+    
+\end{proof}
+
+We now want to deal with random conductances on fixed graphs such as \(\mathbb{Z}\) or \(\mathbb{Z}^2\). We assume the following restrictions:
+\begin{enumerate}[1)]
+  \item random conductances are in \((0, \infty)\);
+  \item the distribution of conductances is translation invariant, i.e. for all \(x \in \mathbb{Z}\; (\mathbb{Z}^2)\), we have  \((c(e))_e =_d (c(e+x))_e\).
+\end{enumerate}
+We would like to know whether we can produce a transient network by choosing random conductances for the recurrent graph.
+\subsubsection{Random network is one-dimensional lattice}
+\begin{thm}[]
+    \(\mathbb{Z}\) as a random network is always a recurrent.
+\end{thm}
+
+\begin{proof}
+  Fix \(\epsilon>0\). We show that \(\mathbb{P}(\text{Network is recurrent})\geq 1-2 \epsilon.\) Take \(M\) usch that \(\mathbb{P}(c(e) >M)< \epsilon\). Then we have that 
+  \begin{align*}
+    \mathbb{P}(\text{There are infinitely many \(n\geq 0\) such that \(\underbrace{c(n,n+1) \leq M}_{A_n:=}\)} &= \mathbb{P} \left(\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty } A_k\right) \\
+                                                                                                         &\overset{=}{\text{I}}\lim_{n \to \infty} \mathbb{P} \left(\bigcup_{k=n}^{\infty }\right) \\
+                                                                                                         &\geq\varliminf_{n \to \infty} \mathbb{P}(A_k) \\
+                                                                                                         &= \geq 1- \epsilon
+  \end{align*}
+  (I) holds since the intersection contains decreasing sets. It follows that the probability that there are infinitely many \(n\geq 0\) with \(c(n,n+1) \leq M\) and infinitely many \(n \leq 0\) with \(c(n,n-1) \leq M\) is at least \(1- 2\epsilon\). Thus we can find infinitely many disjoint cutsets with individual conductance at most \(2M\).
+
+\end{proof}
+
+\subsubsection{Random network is two-dimensional lattice}
+The two-dimensional case is more delicate and depends on further circumstances. 
+
+\begin{thm}[]
+    Consider \(\mathbb{Z}^2\) as a random network. Then, the following statements hold:
+    \begin{enumerate}[1)]
+      \item If \(\mathbb{E} \left[c(e)\right] < \infty \) for horizontal and vertical edges \(e\), the network is recurrent;
+      \item If conductances are independent, the network is recurrent;
+      \item There exists a transient system of random conductances on \(\mathbb{Z}^2\).
+    \end{enumerate}
+    
+\end{thm}
+
+\begin{proof}
+    We show the result in a few steps:
+    \begin{enumerate}[1.]
+      \item Assign 1 to every edge;
+      \item For every vertex sample \(V_x, H_x\) (vertical, horizontal) iid, we set 
+        \[
+        \begin{cases}
+          \mathbb{P} \left(V_x=n\right)=3^{-n}, &  n \geq 1 \\
+          \mathbb{P} \left(V_x=0\right)= 1- \sum_{n=1}^{\infty} 3^{-n} 
+        \end{cases}
+        \]
+        \begin{description}
+          \item For every \(x\), if \(V_x \geq 1\), then add \(4^{V_x}\) to the \(2^{V_x}\) above \(x\);
+          \item For every \(x\), if \(H_x \geq 1\), then add \(4^{H_x}\) to the \(2^{H_x}\) right to \(x\).
+        \end{description}
+    \end{enumerate}
+   By Borel-Cantelli, each edge will have infinitely many contributions.  
+\end{proof}
+
