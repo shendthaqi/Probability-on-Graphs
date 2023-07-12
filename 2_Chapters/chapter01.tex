@@ -773,3 +773,44 @@ The two-dimensional case is more delicate and depends on further circumstances.
    By Borel-Cantelli, each edge will have infinitely many contributions.  
 \end{proof}
 
+
+
+We want to deal with percolation. The first model is considering a \(n \times n\) square in \(\mathbb{Z}^d\). We say every edge is open with probability \(p\) and closed with probability \(1-p\). All edges are independent of each other. A natural question is whether there exists an open path from the top to the bottom of the square. This event is random if and only if \(p=\frac{1}{2}\). We will show that 
+\[\lim_{n \to \infty} \mathbb{P}_p \left(\text{There is open path from top to bottom}\right)
+\begin{cases}
+  1, & p>\frac{1}{2}; \\
+  \frac{1}{2}, & p=\frac{1}{2}; \\
+  0 & p< \frac{1}{2}.
+\end{cases}
+\]
+
+We consider a (typically infinite) graph \(G=(V,E)\). Let \(p \in [0,1]\). 
+
+\begin{defn}[Percolation]
+    We define
+    \begin{enumerate}[1)]
+      \item \emph{bond percolation}: Let \(( \omega_e)_e\) be independent and identically distributed with law \(\mathrm{Ber}(p)\). We consider \(G^{\omega }=(V, \set*{e; \omega_e=1})\);
+      \item \emph{site percolation}: Let \((\omega_v)_v\) be independent and identically distributed with law \(\mathrm{Ber}(p)\). We consider \(G^{\omega }=(\set*{v; \omega _v=1}, \set*{\{u,v\}; \omega _u=\omega _v=1})\).
+      \end{enumerate}
+\end{defn}
+
+We consider the bond percolation and the question: What is \(\mathbb{P}_p(G^{\omega } \text{ contains an infinite cluser})\)? (Cluster means connected component) We gradually try to answer this question and focus on \(\mathbb{Z}^d\). 
+
+\begin{fact}[]
+  For all \(p \in [0,1]\) and \(G\) locally finite, \(\mathbb{P}_p(G^{\omega }\text{ contains an infinite cluster})\in \{0,1\}\).
+\end{fact}
+
+\begin{proof}
+    We employ Kolmogorov's 0-1 law. Our intuition is: Presence of an infinite cluster is independent of finitely many changes on the edges (closing and opening). 
+\end{proof}
+
+Notice that this does not hold for site percolation. In fact, the probability of an infinite cluster is not a 0-1 event!
+
+\begin{fact}[]
+    If \(G=\mathbb{Z}^d\) and \(p < 1\), then \(\mathbb{P}_p(\text{There is an infinite cluster})=0\).
+\end{fact}
+
+\begin{proof}
+    We provide the idea: If \(p < 1\), then on each side of 0 infinitely many edges are closed, hence \(\mathbb{P}_p\)-almost surely there will be a break of the component.
+\end{proof}
+
