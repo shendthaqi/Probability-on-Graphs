@@ -864,3 +864,40 @@ Notice that this does not hold for site percolation. In fact, the probability of
    Hence \(\mathbb{P}_p(\text{There is an infinite cluster})=1\).
 \end{proof}
 
+We have seen that for some \(p\), the probability of having infinite clusters is 0 while for some it is 1. By our previous argument, there is a critical value \(p_c(\mathbb{Z}^d)\) such that \(\mathbb{P}_p(\text{There is an infinite cluster})) =1\) for \(p>p_c\) and \(\mathbb{P}_p(\text{There is an infinite cluster })=0 \) for \(p< p_c\). This leads to two questions: The first one is, what is the critical value \(p_c(\mathbb{Z}^d)\). The second one is, what is \(\mathbb{P}_{p_c}(\text{There is an infinite cluster})=0\). Research has shown that 
+\begin{enumerate}[1.]
+  \item \(\mathbb{P}_{p_c}(\text{There is an infinite cluster})= \begin{cases} 0,& d=2 \quad{\text{Kersten 1985}} \\
+      0,& d\geq 11 \quad{\text{Hofstad 2012}} \\
+      ?,& 3 \leq d \leq 10 
+    \end{cases}\)
+  \item \(p_c(\mathbb{Z}^2)= \frac{1}{2}\) (Kersten 1985). 
+\end{enumerate}
+
+
+\begin{defn}[Increasing function]
+  \(f: \{0,1\}^{I} \to \mathbb{R}\) is called \emph{increasing} if for \(x_i \leq y_i\) we have \(f(y) \geq y\).
+\end{defn}
+
+\begin{thm}[Fortuin-Kasteleyn-Genivre]
+  Let \((x_i)_i\) be independent and identically distributed with law \(\mathrm{Ber}(p)\), \(f,g:\{0,1\}^{I} \to \mathbb{R}\) be increasing. Then, \(\mathbb{E}[f(x)g(x)] \geq \mathbb{E}[f(x)] \mathbb{E}[g(x)]\).  
+\end{thm}
+
+We consider \(\mathbb{Z}^2\). Further consider an \(n \times (n-1)\) rectangle and its \((n-1)\times n\) dual rectangle. By planarity the existence of an open right to left (RL) crossing in the original lattices is equivalent to the absence of an open top to bottom (TB) crossing in the dual. Hence 
+\begin{align*}
+  &\mathbb{P}_p (\text{There is no open RL crossing in \(n \times (n-1)\)}) \\
+  &=1-\mathbb{P}_p (\text{There is open TB crossing in the \((n-1) \times n\)}) \\
+  &\overset{\mathclap{\text{rotate}}}{=} \;\;1-\mathbb{P}_{1-p}(\text{There is open RL crossing in \(n\times(n-1)\)})
+\end{align*}
+For \(p=\frac{1}{2}\), we get 
+\begin{align*}
+  \mathbb{P}_{1/2}(\text{There is open RL crossing in \(n\times (n-1)\)})&=1-\mathbb{P}_{1/2} (\text{There is open RL crossing in \(n\times(n-1)\)})
+\end{align*}
+Hence \(\mathbb{P}(\text{There is open RL crossing in \(n\times(n-1)\)})=1/2\)
+
+
+\begin{remark}[Russo-Seymar-Welsch]
+    We can give lower bounds for RL crossing probabilities in \(n \times 4n\). Hard part is showing that 
+    \[\mathbb{P}_{1/2}(\text{There is RL crossing in \(\frac{3n}{2}\times n\)})\geq \frac{1}{8}\]
+    One can deduce that \[\mathbb{P}_{1/2 }(\text{There is RL crossing in \(2n \times n\)})\geq \frac{1}{128}\] as well as \[ \mathbb{P}_{1/2}(\text{There is open RL crossing in \(4n\times n\)}) \geq \left(\frac{1}{128}\right)^3 \cdot \frac{1}{4}\]
+\end{remark}
+
