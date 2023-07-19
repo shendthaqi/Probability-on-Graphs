@@ -814,3 +814,53 @@ Notice that this does not hold for site percolation. In fact, the probability of
     We provide the idea: If \(p < 1\), then on each side of 0 infinitely many edges are closed, hence \(\mathbb{P}_p\)-almost surely there will be a break of the component.
 \end{proof}
 
+
+\begin{fact}[]
+    If \(p < \frac{1}{2d}\), then \(\mathbb{P}_p(\text{There is an infinite cluser})=0\).
+\end{fact}
+
+\begin{proof}
+    By union bound we have
+    \[\mathbb{P}_p(\text{There is an infinite cluster}) \leq \sum_{v \in \mathbb{Z}^d}^{} \mathbb{P}_p(\underbrace{\text{\(v\) is in infinite cluster}}_{\text{independent of \(v\)}}).\]
+    It suffices to prove that \(\mathbb{P}_p(\text{0 is in infinite cluster})=0\). We further have
+    \begin{align*}
+      \mathbb{P}_p(\text{0 is in an infinite cluster}) &= \lim_{n \to \infty} \mathbb{P}_p(\text{There is simple open path of length \(n\) starting at 0})\\
+                                                       &\leq \lim_{n \to \infty} \sum_{\gamma \in \Gamma(0,n) }^{} \mathbb{P}_p(\text{all edges in \(\gamma \) are open}) \\
+                                                       &=\lim_{n \to \infty} p^n \cdot \abs{\Gamma(0,n) } \\
+                                                       &= \lim_{n \to \infty} p^n \cdot (2^d)^n \\
+                                                       &=0
+    \end{align*}
+   We denote \(\Gamma(v,k) \) as the set of simple paths of length \(k\) starting in \(v\).
+\end{proof}
+
+
+\begin{fact}[]
+    If \(d = 2\), \(p\geq \frac{3}{4}\), then \(\mathbb{P}_p(\text{There is an infinite cluster})=1\).
+\end{fact}
+
+\begin{defn}[Dual lattice]
+    The dual lattice is a new graph. Its vertices are the middle points of the faces and its edges are what you would expect. We have a one-to-one correpsondence between edges of origina and dual lattices.
+\end{defn}
+
+
+\begin{fact}[Topological claim in two dimensions]
+    Let \(d=2\). If the component containing \(0\) is finite, then there is a closed dual cycle around 0. 
+\end{fact}
+
+\begin{proof}
+    Fix \(M\) large. Then
+    \begin{align*}
+      \mathbb{P}_p(\text{There is closed dual cycle around 0 longer than \(M\)} & \leq \sum_{n=M}^{\infty} \underbrace{(1-p)^n)}_{\text{closed graphs}} \cdot \underbrace{\#(\text{cycles})}_{\leq 4n\cdot 4^n} \\
+                                                                                & \leq \sum_{n=M}^{\infty} ( \underbrace{(1-p)\cdot 4}_{<1})^n \cdot 4n \\
+                                                                                &< 1.
+    \end{align*}
+   By Kolmogorov's 0-1 law we have
+   \begin{align*}
+     &\underbrace{\mathbb{P}_p(\text{There is an infinite cluster})}_{\in \{0,1\}} \\
+     &\geq \mathbb{P}_p(\text{Edges up to dist \(M\) open, no closed circuit around \([-M,M]^2\)}) \\
+     &= \mathbb{P}_p(\text{Edges in \([-M,M]^2\) open})\cdot \mathbb{P}_p(\text{No closed cycle around \([-M,M]^2\)}) \\
+     & \geq p^{4M^2} \cdot \left(1- \sum_{n=M}^{\infty} [4(1-p)]^n \cdot 4n\right) >0.
+   \end{align*}
+   Hence \(\mathbb{P}_p(\text{There is an infinite cluster})=1\).
+\end{proof}
+
